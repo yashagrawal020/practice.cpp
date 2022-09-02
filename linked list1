@@ -1,0 +1,100 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+
+
+
+
+
+
+class node{
+public:
+	
+	int data;
+	
+	node* next;
+	
+	node(int data)
+	{
+		this -> data = data;
+		this -> next = NULL;
+	}
+};
+
+
+void insertathead(node* &head,int data)
+{
+	node* temp = new node(data);
+	
+	temp -> next = head;
+	head = temp; 
+}
+
+
+void insertattail(node* &tail, int data)
+{
+	node* temp = new node(data);
+	tail -> next = temp;
+	
+	tail = tail -> next;
+}
+
+
+void printList(node * n)
+{
+    while (n != NULL) {
+        cout << n->data << " ";
+        n = n->next;
+    }
+}
+
+int main()
+{
+	#ifndef ONLINE_JUDGE
+    freopen("input1.txt" , "r" ,stdin);
+    freopen("output1.txt" , "w" ,stdout);
+    #endif
+    
+    
+  
+  //  node* node1 = new node();
+	node* head = new node(1);
+	node* second = new node(2);
+	node* third = new node(3);
+	node* tail = new node(5);
+	
+	
+//	node* head = node1;
+	
+	// head->data = 1; 
+    head->next = second;
+    
+  //  second->data = 2;
+     second->next = third;
+     
+     
+  //   third->data = 3; 
+    third->next = tail;
+    
+    tail -> next = NULL;
+    
+    insertathead(head,10);
+    insertathead(head,69);
+    
+    insertattail(tail,100);
+    
+    
+    
+	
+	
+	
+
+
+printList(head);
+cout << endl;
+
+
+	
+	
+	return 0;
+}
