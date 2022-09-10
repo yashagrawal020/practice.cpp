@@ -1,0 +1,167 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+
+
+
+
+
+
+class node{
+public:
+	
+	int data;
+	
+	node* next;
+	
+	
+	// constructor
+	node(int data)
+	{
+		this -> data = data;
+		this -> next = NULL;
+	}
+	
+	// destructor
+	
+	~node ()
+	{
+		int value = this-> data;
+		if(this-> next != NULL)
+		{
+			delete next;
+			this->next = NULL;
+		}
+		
+		cout << "memory has been freed for node with data" << " " <<value << endl;
+	}
+};
+
+void insertatpos(node* &tail,int element,int data)
+{
+	// assuming that the data is present in the Circular ll
+	
+	//empty list
+	
+	if(tail == NULL)
+		{
+			node* newnode = new node(data);
+			
+			tail = newnode;
+			
+			newnode->next = newnode;
+		}
+		
+	else
+		{
+			node* curr = tail;
+			
+			while(curr->data != element)
+				{
+					curr = curr-> next;
+					
+				}
+				
+			node* temp = new node(data);
+			
+			temp -> next = curr->next;
+			curr-> next = temp;
+		}
+}
+
+void deletenode(node* &tail,int value)
+{
+	// deleting starting node
+	
+	
+	if(tail==NULL)
+		{
+			cout << "THERES nothing to delete" << endl; 
+		}
+		
+	else
+	{
+		node* prev = tail;
+		node* curr = tail-> next;
+		
+		while(curr -> data != value)
+			{
+				prev = curr;
+				curr = curr-> next;
+			}
+		prev -> next = curr -> next;
+		
+		// 1 node linked lise
+		if(curr == pre) tail = NULL;
+		
+		
+		// >= 2 node linked list
+		else if(tail == curr) tail = prev;
+		
+		
+		
+		curr-> next = NULL;
+		delete curr;
+	}
+	
+		
+	
+}
+
+
+void printList(node* tail)
+{
+	
+	node* temp = tail;
+ 
+	
+   do{
+        cout << tail->data << " ";
+        tail = tail->next;
+    } while (tail->next != temp);
+    
+    cout << endl;
+}
+
+
+
+int main()
+{
+	
+    
+    #ifndef ONLINE_JUDGE
+    freopen("input1.txt" , "r" ,stdin);
+    freopen("output1.txt" , "w" ,stdout);
+    #endif
+  
+ 
+    
+    node* tail = NULL;
+    
+    insertatpos(tail,1,3);
+    printList(tail);
+
+    
+   
+     insertatpos(tail,3,10);
+     printList(tail);
+     
+
+     insertatpos(tail,10,103);
+     printList(tail);
+     
+
+     insertatpos(tail,103,1000);
+     printList(tail);
+     
+       
+
+     insertatpos(tail,1000,13000);
+     printList(tail); 
+     
+     deletenode(tail,3);
+     printList(tail);
+    
+ 	
+	return 0;
+}
