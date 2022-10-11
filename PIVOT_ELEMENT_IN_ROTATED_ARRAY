@@ -252,6 +252,29 @@ cout << s << endl;
 
 
 
+
+// NOTE
+
+// DIVYANSHU BHAIYA NOTES THIS GIVES THE POSITION OF MAX ELEMENT
+
+while(s<=e)
+{
+    int mid = (s+e)/2;
+    
+    int prev = (mid + n - 1) % n;
+    
+    int nxt = (mid + 1)%n;
+    if(a[mid] > a[nxt] && a[mid] > a[prev])
+    {
+       cout << mid << endl;
+       return;
+    }
+    else if( a[mid] >= a[s])
+        s = mid+1;
+    else
+        e = mid-1;
+}
+
 }
 
 
