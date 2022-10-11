@@ -239,7 +239,7 @@ while(s<e)
     int mid = (s+e)/2;
     
     
-    if(a[mid] > a[0])
+    if(a[mid] >= a[0])
     {
         s = mid +1;
     }
