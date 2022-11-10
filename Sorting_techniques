@@ -1,0 +1,37 @@
+
+
+// BUBBLE SORT-  0(n^2)
+
+WHAT WE DO IS SWAP THE ADJACENT ELEMENT IF THE Ith element is Bigger than (Ith + 1) element.
+in this way we swap the biggest element to the last always like a bubble.
+The way bubble goes at the top.
+
+we do this n-1 time because at last 2 elemets after swaping 1 iteration is saved.
+
+and at every i we see the adjacent elements.
+
+for(int i=0;i<n-1;i++)
+{
+    int flag = 0;
+    for(int j=0;j<n-1-i;j++)
+    {
+        if(a[j] > a[j+1])
+        {
+            swap(a[j],a[j+1]);
+            flag = 1;
+        }
+        
+       
+    }
+    
+        if(flag==0) break;
+}
+
+/////
+
+
+
+
+
+
+
